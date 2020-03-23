@@ -27,7 +27,7 @@ char getAngles(float xPos, float zPos, float* outputAngles[]) {
 
         //Check if angles are valid:
         if((outputAngles[0]>(40*math.PI/180))&&(outputAngles[0]<(140*math.PI/180))) {} else { validity = 2; } //mot_A out of range
-        if((outputAngles[1]>(15*math.PI/180))&&(outputAngles[1]<(130*math.PI/180))) {} else { validity = 3; } //mot_B out of range
+        if((outputAngles[1]>(15*math.PI/180))&&(outputAngles[1]<(130*math.PI/180))) {} else { validity = 3; } //mot_B out of range TODO this may be too restrictive
         if((outputAngles[0]+(65*math.PI/180)) > outputAngles[1]) {} else { validity = 4; } //links are pinching
         if((outputAngles[0]-outputAngles[1]) > (65*math.PI/180)) {} else { validity = 5; } //links are overextended
     }
