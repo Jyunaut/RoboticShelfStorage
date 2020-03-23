@@ -3,7 +3,7 @@
 #include "Handlers.h"
 
 const float ARM_LINK_LEN = 250; //mm, both links are same length
-const float servo_UsPerDeg = 8.33333333333;
+const float servo_UsPerDeg = 8.33333333333; //TODO needs calibration. = 1500 us / 180 deg, but datasheet says 1000/180 = 5.55555
 const float motA_angleUsOfZero = 500; //TODO these should be calibrated again
 const float motB_angleUsOfZero = 470; //TODO these should be calibrated again
 
