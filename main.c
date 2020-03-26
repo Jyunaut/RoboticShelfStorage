@@ -34,19 +34,19 @@ char getAngles(float xPos, float zPos, float* outputAngles)
         // Check if angles are valid
         if (!((outputAngles[0] > (40 * (float)M_PI / 180)) && (outputAngles[0] < (140 * (float)M_PI / 180))))
         {
-            return 2; // mot_A out of range
+            return 2; // Motor A out of range
         }
         if (!((outputAngles[1] > (15 * (float)M_PI / 180)) && (outputAngles[1] < (130 * (float)M_PI / 180))))
         {
-            return 3; // mot_B out of range TODO this may be too restrictive
+            return 3; // Motor B out of range TODO this may be too restrictive
         }
         if (!((outputAngles[0] + (65 * (float)M_PI / 180)) > outputAngles[1]))
         {
-            return 4; // links are pinching
+            return 4; // Links are pinching
         }
         if (!((outputAngles[0] - outputAngles[1]) > (65 * (float)M_PI / 180)))
         {
-            return 5; // links are overextended
+            return 5; // Links are overextended
         }
     }
     return 0;
