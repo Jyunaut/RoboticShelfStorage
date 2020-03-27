@@ -9,12 +9,22 @@ float DegToRad(float deg)
     return deg * PI / 180;
 }
 
-void GetAngles(float xPos, float zPos, float* outputAnglesRad)
+float RadToDeg(float rad)
+{
+    return rad * 180 / PI;
+}
+
+float DegToUs(float deg)
+{
+    // TODO: Convert degrees to PWM duty cycle in microseconds
+}
+
+void GetAngles(float* targetXZCoord, float* outputAnglesRad)
 {
 
     // Calculate hypotenuse length and angle above horizontal
-    float lHypotenuse = sqrtf((pow(xPos, 2)) + (pow(zPos, 2)));
-    float aHypotenuse = atan2f(xPos, zPos);
+    float lHypotenuse = sqrtf((pow(targetXZCoord[0], 2)) + (pow(targetXZCoord[1], 2)));
+    float aHypotenuse = atan2f(targetXZCoord[0], targetXZCoord[1]);
 
     // Angle between hypotenuse and link1
     float ang_d = acos((lHypotenuse / 2) / ARM_LINK_LENGTH);
@@ -24,9 +34,9 @@ void GetAngles(float xPos, float zPos, float* outputAnglesRad)
     outputAnglesRad[1] = (PI / 2) - aHypotenuse + ang_d; // Motor B
 }
 
-char ValidateAngles(float xPos, float zPos, float* outputAnglesRad)
+char ValidateAngles(float* targetXZCoord, float* outputAnglesRad)
 {
-    float lHypotenuse = sqrtf((pow(xPos, 2)) + (pow(zPos, 2)));
+    float lHypotenuse = sqrtf((pow(targetXZCoord[0], 2)) + (pow(targetXZCoord[1], 2)));
 
     // Target is outside of workspace sphere, acos() will fail
     if (lHypotenuse > (ARM_LINK_LENGTH * 2))

@@ -11,7 +11,9 @@ const short NUM_SHELVES = 4;
 
 char errorNumber = 0;
 short curShelf = 0;
+
 float outputAnglesRad[2] = {0, 0};
+float outputAnglesUs[2]  = {0, 0};
 
 int main()
 {
