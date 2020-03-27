@@ -10,6 +10,7 @@ GEN_OPTS__FLAG :=
 GEN_CMDS__FLAG := 
 
 ORDERED_OBJS += \
+"./AngleCalculation.obj" \
 "./Handlers.obj" \
 "./Initializations.obj" \
 "./Interrupts.obj" \
@@ -158,8 +159,8 @@ RoboticShelfStorage.hex: $(EXE_OUTPUTS)
 # Other Targets
 clean:
 	-$(RM) $(BIN_OUTPUTS__QUOTED)$(EXE_OUTPUTS__QUOTED)
-	-$(RM) "Handlers.obj" "Initializations.obj" "Interrupts.obj" "main.obj" "tm4c123gh6pm_startup_ccs.obj" 
-	-$(RM) "Handlers.d" "Initializations.d" "Interrupts.d" "main.d" "tm4c123gh6pm_startup_ccs.d" 
+	-$(RM) "AngleCalculation.obj" "Handlers.obj" "Initializations.obj" "Interrupts.obj" "main.obj" "tm4c123gh6pm_startup_ccs.obj" 
+	-$(RM) "AngleCalculation.d" "Handlers.d" "Initializations.d" "Interrupts.d" "main.d" "tm4c123gh6pm_startup_ccs.d" 
 	-@echo 'Finished clean'
 	-@echo ' '
 
