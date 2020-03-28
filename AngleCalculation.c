@@ -19,11 +19,18 @@ float DegToUs(float deg)
     // TODO: Convert degrees to PWM duty cycle in microseconds
 }
 
-void GetAngles(float* targetXZCoord, float* outputAnglesRad)
+char GetAngles(float* targetXZCoord, float* outputAnglesRad)
 {
 
-    // Calculate hypotenuse length and angle above horizontal
+    // Calculate hypotenuse length and check if the hypotenuse is longer than
+    // the robot arm workspace, if so then return an error code
     float lHypotenuse = sqrtf((pow(targetXZCoord[0], 2)) + (pow(targetXZCoord[1], 2)));
+    if (lHypotenuse > ARM_LINK_LENGTH * 2)
+    {
+        return 1;
+    }
+
+    // Calculate hypotenuse angle above horizontal
     float aHypotenuse = atan2f(targetXZCoord[0], targetXZCoord[1]);
 
     // Angle between hypotenuse and link1
@@ -32,17 +39,6 @@ void GetAngles(float* targetXZCoord, float* outputAnglesRad)
     // Calculate ideal motor angles (error offsets added by motion control)
     outputAnglesRad[0] = PI - aHypotenuse - ang_d;       // Motor A
     outputAnglesRad[1] = (PI / 2) - aHypotenuse + ang_d; // Motor B
-}
-
-char ValidateAngles(float* targetXZCoord, float* outputAnglesRad)
-{
-    float lHypotenuse = sqrtf((pow(targetXZCoord[0], 2)) + (pow(targetXZCoord[1], 2)));
-
-    // Target is outside of workspace sphere, acos() will fail
-    if (lHypotenuse > (ARM_LINK_LENGTH * 2))
-    {
-        return 1;
-    }
 
     // Check if Motor A out of range
     if (!((outputAnglesRad[0] > DegToRad(40)) && (outputAnglesRad[0] < DegToRad(140))))
