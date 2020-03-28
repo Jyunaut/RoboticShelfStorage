@@ -14,6 +14,8 @@ struct Coordinates
  *         {xIn3, zIn3, xInLift3, zInLift3, xOut3, zOut3},
  *         {xIn4, zIn4, xInLift4, zInLift4, xOut4, zOut4}};
  *
+ * More Generalized: Shelf: In, InLift, Out
+ *
  * Where the numbers dictate the shelf level
  * TODO: These values may need calibration and I'm not sure if it works yet
 */
