@@ -14,6 +14,7 @@ ORDERED_OBJS += \
 "./Handlers.obj" \
 "./Initializations.obj" \
 "./Interrupts.obj" \
+"./MotionControl.obj" \
 "./main.obj" \
 "./tm4c123gh6pm_startup_ccs.obj" \
 "../tm4c123gh6pm.cmd" \
@@ -159,8 +160,8 @@ RoboticShelfStorage.hex: $(EXE_OUTPUTS)
 # Other Targets
 clean:
 	-$(RM) $(BIN_OUTPUTS__QUOTED)$(EXE_OUTPUTS__QUOTED)
-	-$(RM) "AngleCalculation.obj" "Handlers.obj" "Initializations.obj" "Interrupts.obj" "main.obj" "tm4c123gh6pm_startup_ccs.obj" 
-	-$(RM) "AngleCalculation.d" "Handlers.d" "Initializations.d" "Interrupts.d" "main.d" "tm4c123gh6pm_startup_ccs.d" 
+	-$(RM) "AngleCalculation.obj" "Handlers.obj" "Initializations.obj" "Interrupts.obj" "MotionControl.obj" "main.obj" "tm4c123gh6pm_startup_ccs.obj" 
+	-$(RM) "AngleCalculation.d" "Handlers.d" "Initializations.d" "Interrupts.d" "MotionControl.d" "main.d" "tm4c123gh6pm_startup_ccs.d" 
 	-@echo 'Finished clean'
 	-@echo ' '
 

@@ -14,16 +14,11 @@ float RadToDeg(float rad)
     return rad * 180 / PI;
 }
 
-float DegToUs(float deg)
-{
-    // TODO: Convert degrees to PWM duty cycle in microseconds
-}
-
 char GetAngles(float* targetXZCoord, float* outputAnglesRad)
 {
 
     // Calculate hypotenuse length and check if the hypotenuse is longer than
-    // the robot arm workspace, if so then return an error code
+    // the robot agit prm workspace, if so then return an error code
     float lHypotenuse = sqrtf((pow(targetXZCoord[0], 2)) + (pow(targetXZCoord[1], 2)));
     if (lHypotenuse > ARM_LINK_LENGTH * 2)
     {

@@ -14,11 +14,6 @@ inline float DegToRad(float deg);
 inline float RadToDeg(float rad);
 
 /* =================================================================================
- * Calculates Degrees to Period (PWM duty cycle in microseconds).
- */
-inline float DegToUs(float deg);
-
-/* =================================================================================
  * Input positions are in mm from the motors' axis to top joint on the fork.
  * Calling code must provide 2-element array for function to write angles back to.
  * Returns an error number if the system fails to follow any of the constraints.

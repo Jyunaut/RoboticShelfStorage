@@ -1,12 +1,11 @@
 #include "Handlers.h"
 
 extern short curShelf;
+float targetPos[2] = {250, 105};
 
 void HandlePortFInterrupt()
 {
     curShelf++;
 
-    float targetXY[2] = {0, 2};
 
-    // TODO: Retrieve arm movement instructions
 }
