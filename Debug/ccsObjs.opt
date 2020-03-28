@@ -1,1 +1,1 @@
-"./AngleCalculation.obj" "./Handlers.obj" "./Initializations.obj" "./Interrupts.obj" "./MotionControl.obj" "./main.obj" "./tm4c123gh6pm_startup_ccs.obj" "../tm4c123gh6pm.cmd" -llibc.a 
+"./AngleCalculation.obj" "./Handlers.obj" "./Initializations.obj" "./Interrupts.obj" "./MotionControl.obj" "./PLL.obj" "./SysTickInts.obj" "./main.obj" "./tm4c123gh6pm_startup_ccs.obj" "../tm4c123gh6pm.cmd" -llibc.a 

@@ -1,4 +1,6 @@
 #include <math.h>
+#include "PLL.h"
+#include "SysTickInts.h"
 #include "Initializations.h"
 #include "Interrupts.h"
 
@@ -32,15 +34,19 @@ const float MOTOR_B_ZERO_ANGLE_US = 470; // TODO these should be calibrated agai
 
 char errorNumber = 0;
 short curShelf = 0;
+short keyPosition = 0;
 
 float outputAnglesRad[2] = {0, 0};
 float outputAnglesUs[2]  = {0, 0};
 
 int main()
 {
+    PLL_Init();
     InitPortFInterrupt();
     InitPortBPWM();
+    SysTick_Init(1000);
 
+    enable_interrupts();
     while (1)
     {
         wait_for_interrupts();
