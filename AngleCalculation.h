@@ -6,12 +6,12 @@
 /* =================================================================================
  * Calculates Degrees to Radians.
  */
-inline float DegToRad(float deg);
+static inline float DegToRad(float deg);
 
 /* =================================================================================
  * Calculates Radians to Degrees.
  */
-inline float RadToDeg(float rad);
+static inline float RadToDeg(float rad);
 
 /* =================================================================================
  * Input positions are in mm from the motors' axis to top joint on the fork.
