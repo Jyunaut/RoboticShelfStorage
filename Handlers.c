@@ -6,7 +6,7 @@ extern short keyPosition;
 void HandlePortFInterrupt()
 {
     GPIO_PORTF_ICR_R = 0x10;
-    curShelf++;
+    curShelf = curShelf + 1;
 
 
 }
