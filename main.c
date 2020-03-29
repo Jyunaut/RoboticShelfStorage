@@ -4,7 +4,7 @@
 #include "Initializations.h"
 #include "Interrupts.h"
 
-struct Coordinates
+struct coordinates
 {
     float x;
     float y;
@@ -16,12 +16,12 @@ struct Coordinates
  *         {xIn3, zIn3, xInLift3, zInLift3, xOut3, zOut3},
  *         {xIn4, zIn4, xInLift4, zInLift4, xOut4, zOut4}};
  *
+ * Where the numbers dictate the shelf level
  * More Generalized: Shelf: In, InLift, Out
  *
- * Where the numbers dictate the shelf level
  * TODO: These values may need calibration and I'm not sure if it works yet
 */
-const struct Coordinates positions[4][3] = {{300, 100, 300, 120, 150, 120},
+const struct coordinates positions[4][3] = {{300, 100, 300, 120, 150, 120},
                                             {300, 200, 300, 220, 150, 220},
                                             {300, 300, 300, 320, 150, 320},
                                             {300, 400, 300, 420, 150, 420}};
@@ -46,7 +46,6 @@ int main()
     InitPortBPWM();
     SysTick_Init(1000);
 
-    enable_interrupts();
     while (1)
     {
         wait_for_interrupts();

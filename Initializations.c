@@ -17,9 +17,9 @@ void InitPortFInterrupt()
     GPIO_PORTF_DEN_R = 0x1F;                        // enable digital I/O on PF4-0
 
     // Set up PortF for interrupts
-    GPIO_PORTF_IS_R &= ~0x10;
-    GPIO_PORTF_IBE_R &= ~0x10;
-    GPIO_PORTF_IEV_R &= ~0x10;
+    GPIO_PORTF_IS_R &= ~0x00;
+    GPIO_PORTF_IBE_R &= ~0x00;
+    GPIO_PORTF_IEV_R &= ~0x00;
     GPIO_PORTF_ICR_R = 0x10;
     GPIO_PORTF_IM_R |= 0x10;
 
