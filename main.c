@@ -7,7 +7,7 @@
 struct coordinates
 {
     float x;
-    float y;
+    float z;
 };
 
 /* This is a 2D array of 3 key positions for each of the 4 levels in the system in mm
@@ -21,10 +21,9 @@ struct coordinates
  *
  * TODO: These values may need calibration and I'm not sure if it works yet
 */
-const struct coordinates positions[4][3] = {{300, 100, 300, 120, 150, 120},
+const struct coordinates positions[3][3] = {{300, 100, 300, 120, 150, 120},
                                             {300, 200, 300, 220, 150, 220},
-                                            {300, 300, 300, 320, 150, 320},
-                                            {300, 400, 300, 420, 150, 420}};
+                                            {300, 300, 300, 320, 150, 320}};
 
 const float PI = (float)M_PI;
 const float ARM_LINK_LENGTH = 250;       // mm, both links are same length
