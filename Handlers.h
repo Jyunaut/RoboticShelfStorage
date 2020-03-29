@@ -1,8 +1,9 @@
 #ifndef HANDLERS_H_
 #define HANDLERS_H_
 
-#include "AngleCalculation.h"
 #include "tm4c123gh6pm.h"
+#include "AngleCalculation.h"
+#include "MotionControl.h"
 
 /* =================================================================================
  * Handles the button press when starting the arm sequence.

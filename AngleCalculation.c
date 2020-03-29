@@ -1,7 +1,6 @@
 #include "AngleCalculation.h"
+#include "SystemConstants.h"
 
-extern const float PI;
-extern const float ARM_LINK_LENGTH;
 extern char errorNumber;
 
 static inline float DegToRad(float deg)
