@@ -32,7 +32,7 @@ const float MOTOR_A_ZERO_ANGLE_US = 500; // TODO these should be calibrated agai
 const float MOTOR_B_ZERO_ANGLE_US = 470; // TODO these should be calibrated again
 
 char errorNumber = 0;
-short curShelf = 0;
+short targetShelf = 0;
 short keyPosition = 0;
 
 float outputAnglesRad[2] = {0, 0};
