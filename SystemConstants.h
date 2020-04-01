@@ -1,6 +1,8 @@
 #ifndef SYSTEMCONSTANTS_H_
 #define SYSTEMCONSTANTS_H_
 
+#include <math.h>
+
 struct coordinates
 {
     float x;
@@ -25,7 +27,7 @@ static const struct coordinates positions[3][3] = {{300, 100, 300, 120, 150, 120
 static const float PI = (float)M_PI;
 static const float ARM_LINK_LENGTH = 250;       // mm, both links are same length
 static const float US_PER_DEG = 8.33333333333;  // TODO needs calibration. = 1500 us / 180 deg, but datasheet says 1000/180 = 5.55555
-static const float MOTOR_A_ZERO_ANGLE_US = 500; // TODO these should be calibrated again
+static const float MOTOR_A_ZERO_ANGLE_US = 800000; // TODO these should be calibrated again
 static const float MOTOR_B_ZERO_ANGLE_US = 470; // TODO these should be calibrated again
 
 #endif
