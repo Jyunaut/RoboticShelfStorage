@@ -1,6 +1,5 @@
 #include "Initializations.h"
-
-const long CLOCK = 16000; // Desired PWM frequency
+#include "SystemConstants.h"
 
 void InitPortFInterrupt()
 {
@@ -31,7 +30,7 @@ void InitPortBPWM()
 {
     SYSCTL_RCGC0_R |= 0x00100000;       // Enable PWM Clock
     SYSCTL_RCGC2_R |= 0x00000002;       // Use Module B
-    SYSCTL_RCC_R &= 0x00100000;         // Use PWM divide and set PWM divider to divide by 2
+    SYSCTL_RCC_R |= 0x001E0000;         // Use PWM divide and set PWM divider to divide by 64
 
     GPIO_PORTB_AFSEL_R = 0x00000040;    // Enable the alternate function for PB6
     GPIO_PORTB_PCTL_R &= ~0x0F000000;   // Clear GPIO Port Control
@@ -39,10 +38,11 @@ void InitPortBPWM()
     GPIO_PORTB_DEN_R = 0x40;            // Enable digital signals on PB6
 
     PWM0_0_CTL_R = 0;                   // Disable timers in PWM Generator
-    PWM0_0_GENA_R = 0x0000008C;         // Enable settings so that the controller will drive PWMA low when counter matches comparator A
-                                        // while counting down and drive PWMA high when counter matches the value in the PWM0LOAD register
-    PWM0_0_LOAD_R = CLOCK;              // 1/100 Hz = 0.01 s -> PWM divide => 80/2 = 40 MHz -> Clock ticks per period = 40 x 10^6 * 0.01 = 400000 ticks/period
-    PWM0_0_CMPA_R = CLOCK - 1;          // Set to 0% duty cycle -> initial value
+    PWM0_0_GENA_R = 0x000000C2;         // Enable settings so that the controller will drive PWMA high when counter matches comparator A
+                                        // while counting down and drive PWMA low when counter reaches zero.
+    PWM0_0_LOAD_R = 25000;              // For a 20 ms (50 Hz) signal and system clock of 80 MHz with a PWM divide of 64
+                                        // (0.02 s) * (80000000 Hz) / 64 = 25000 clock ticks per period
+    PWM0_0_CMPA_R = 1250;               // Set to 1.5 ms period -> Neutral position
     PWM0_0_CTL_R = 1;                   // Enable timers in PWM Generator
     PWM0_ENABLE_R = 0x00000003;         // Enable PWM outputs
 }
