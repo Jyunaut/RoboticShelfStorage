@@ -48,12 +48,12 @@ void GetAngles(float* stepPos, float* motorAngles)
     // Calculate ideal motor angles (error offsets added by motion control)
     motorAngles[0] = RadToDeg(PI - aHypotenuse - ang_d);       // Motor A
     Serial.print("Motor A Angle: ");
-    Serial.print(motorAngles[0]);
+    Serial.print(motorAngles[0], 3);
     Serial.print("\t");
     
     motorAngles[1] = RadToDeg((PI / 2) - aHypotenuse + ang_d); // Motor B
     Serial.print("Motor B Angle: ");
-    Serial.print(motorAngles[1]);
+    Serial.print(motorAngles[1], 3);
     Serial.print("\t");
     
     // Check if Motor A out of range

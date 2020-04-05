@@ -38,8 +38,8 @@ void UpdateMotors(short tarShelf, short tarKeyPos, short numSteps, short iterati
     curPos[1] = positions[curShelf][curKeyPos].z + stepSizeZ * iteration;
 
     GetAngles(curPos, motorAngles);
-    servoA.write(motorAngles[0]);
-    servoB.write(motorAngles[1]);
+    servoA.write(motorAngles[0] + MOTOR_A_NEUTRAL_ANGLE_OFFSET);
+    servoB.write(motorAngles[1] + MOTOR_B_NEUTRAL_ANGLE_OFFSET);
 }
 
 void PrintCoordinates()
@@ -165,18 +165,20 @@ void MoveTo(float x, float z)
 {
     float xDistance = abs(curPos[0] - x);
     float zDistance = abs(curPos[1] - z);
+
+    float prevPosX = curPos[0];
+    float prevPosZ = curPos[1];
     
     short numSteps = (xDistance > zDistance) ? xDistance : zDistance;
-
+    float stepSizeX = (x - curPos[0]) / numSteps;
+    float stepSizeZ = (z - curPos[1]) / numSteps;
+    
     // Return if the target position is the same as the current
     if (numSteps == 0) return;
     for (short i = 1; i <= numSteps; i++)
     {
-        float stepSizeX = (x - curPos[0]) / numSteps;
-        float stepSizeZ = (z - curPos[1]) / numSteps;
-
-        curPos[0] += stepSizeX * i;
-        curPos[1] += stepSizeZ * i;
+        curPos[0] = prevPosX + stepSizeX * i;
+        curPos[1] = prevPosZ + stepSizeZ * i;
 
         GetAngles(curPos, motorAngles);
         servoA.write(motorAngles[0]);

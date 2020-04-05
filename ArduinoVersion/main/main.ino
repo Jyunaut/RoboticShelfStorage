@@ -19,28 +19,33 @@ void setup()
     servoA.attach(9);
     servoB.attach(10);
 
+    curPos[0] = 250;
+    curPos[1] = 250;
     // Start position at inside of feed shelf
     GetAngles(curPos, motorAngles);
     Serial.print("\n");
-    servoA.write(motorAngles[0]);
-    servoB.write(motorAngles[1]);
+    servoA.write(motorAngles[0] + MOTOR_A_NEUTRAL_ANGLE_OFFSET);
+    servoB.write(motorAngles[1] + MOTOR_B_NEUTRAL_ANGLE_OFFSET);
     delay(2000);
 
-    RemoveFork();
-    MoveToShelf(1);
-    InsertFork();
-    RemoveFork();
-    MoveToShelf(0);
-    InsertFork();
-    RemoveFork();
-    MoveToShelf(2);
-    InsertFork();
-    RemoveFork();
-    MoveToShelf(0);
-    InsertFork();
+//    RemoveFork();
+//    MoveToShelf(1);
+//    InsertFork();
+//    RemoveFork();
+//    MoveToShelf(0);
+//    InsertFork();
+//    RemoveFork();
+//    MoveToShelf(2);
+//    InsertFork();
+//    RemoveFork();
+//    MoveToShelf(0);
+//    InsertFork();
 }
 
 void loop()
 {
-    
+//    MoveTo(200, 200);
+//    MoveTo(300, 200);
+//    MoveTo(300, 300);
+//    MoveTo(200, 300);
 }

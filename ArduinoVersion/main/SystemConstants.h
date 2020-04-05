@@ -17,13 +17,13 @@ struct coordinates
  *
  * TODO: These values may need calibration and I'm not sure if it works yet
 */
-static const struct coordinates positions[3][3] = {{250, 140, 225, 180, 125, 160},
-                                                   {225, 180, 225, 230, 125, 230},
-                                                   {225, 260, 210, 320, 125, 300}};
+static const struct coordinates positions[3][3] = {{260, 120, 250, 190, 125, 160},
+                                                   {250, 180, 250, 230, 125, 230},
+                                                   {240, 260, 240, 320, 125, 310}};
 
 static const float ARM_LINK_LENGTH = 250;       // mm, both links are same length
-static const float MOTOR_A_NEUTRAL_ANGLE_OFFSET = -10; // TODO these should be calibrated again
-static const float MOTOR_B_NEUTRAL_ANGLE_OFFSET = 0; // TODO these should be calibrated again
+static const float MOTOR_A_NEUTRAL_ANGLE_OFFSET = -5; // TODO these should be calibrated again
+static const float MOTOR_B_NEUTRAL_ANGLE_OFFSET = -5; // TODO these should be calibrated again
 
 #endif
 
